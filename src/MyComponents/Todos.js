@@ -1,7 +1,7 @@
 import React from 'react';
-import { TodoItem } from './TodoItem';
+import TodoItem from "./TodoItem";
 
-export const Todos = ({ todos, onDelete }) => {
+export const Todos = ({ todos, onDelete, onToggleDone, onEdit }) => {
   const myStyle = { margin: "20px auto" };
 
   return (
@@ -10,7 +10,13 @@ export const Todos = ({ todos, onDelete }) => {
       {todos.length === 0
         ? <p>No todos to display. You have no tasks left.</p>
         : todos.map(todo =>
-            <TodoItem todo={todo} key={todo.sno} onDelete={onDelete} />
+            <TodoItem
+              todo={todo}
+              key={todo.sno}
+              onDelete={onDelete}
+              onToggleDone={onToggleDone}
+              onEdit={onEdit}
+            />
           )
       }
     </div>
