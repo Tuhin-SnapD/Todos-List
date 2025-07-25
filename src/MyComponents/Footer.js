@@ -1,17 +1,12 @@
 import React from 'react';
 
 export const Footer = () => {
-  let footerStyle = {
-    position: "relative",
-    top: "57vh",
-    width: "100%",
-    border: "3px solid grey"
-  }
+  const year = new Date().getFullYear();
   return (
-    <footer className="bg-dark text-light py-1" style={footerStyle}>
-      <p className="text-center">
-        Copyright 2022 &copy; MyTodosList.com
+    <footer className="bg-dark text-light py-2 border-top border-secondary w-100 mt-auto">
+      <p className="text-center mb-0">
+        Copyright {year} &copy; MyTodosList.com
       </p>
     </footer>
-  )
+  );
 };

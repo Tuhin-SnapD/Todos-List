@@ -1,22 +1,18 @@
 import React from 'react';
 import { TodoItem } from './TodoItem';
 
-export const Todos = (props) => {
-  let myStyle={
-    margin: "20px auto"
-  }
+export const Todos = ({ todos, onDelete }) => {
+  const myStyle = { margin: "20px auto" };
+
   return (
-    <>
-    <div className="container " style={myStyle}>
+    <div className="container" style={myStyle}>
       <h3 className="my-3">Todos List</h3>
-      {props.todos.length === 0 ? "No Todos to Display, You have no tasks left" :
-        props.todos.map((todo) => {
-          return(
-           <TodoItem todo={todo} key={todo.sno} onDelete={props.onDelete} />
+      {todos.length === 0
+        ? <p>No todos to display. You have no tasks left.</p>
+        : todos.map(todo =>
+            <TodoItem todo={todo} key={todo.sno} onDelete={onDelete} />
           )
-        })
       }
     </div>
-    </>  
   )
 }

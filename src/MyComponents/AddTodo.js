@@ -1,21 +1,21 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
 export const AddTodo = ({ addTodo }) => {
+    const [form, setForm] = useState({ title: "", desc: "" });
 
-    const [title, setTitle] = useState("");
-    const [desc, setDesc] = useState("");
+    const handleChange = e => {
+        setForm({ ...form, [e.target.id]: e.target.value });
+    };
 
-    const submit = (e) => {
+    const submit = e => {
         e.preventDefault();
-        if (!title || !desc) {
-            alert("Title or Description cannot be blank")
+        if (!form.title.trim() || !form.desc.trim()) {
+            alert("Title or Description cannot be blank");
+            return;
         }
-        else {
-            addTodo(title, desc);
-            setTitle("");
-            setDesc("");
-        }
-    }
+        addTodo(form.title, form.desc);
+        setForm({ title: "", desc: "" });
+    };
 
     return (
         <div className="container my-3">
@@ -23,18 +23,32 @@ export const AddTodo = ({ addTodo }) => {
             <form onSubmit={submit}>
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label">What is the Work</label>
-                    <input type="text" value={title} onChange={(e) => { setTitle(e.target.value) }}
-                        className="form-control" id="title" />
+                    <input
+                        type="text"
+                        value={form.title}
+                        onChange={handleChange}
+                        className="form-control"
+                        id="title"
+                        required
+                        autoFocus
+                    />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="desc" className="form-label">Description of your Work</label>
-                    <input type="text" value={desc} onChange={(e) => { setDesc(e.target.value) }} className="form-control" id="desc" />
+                    <input
+                        type="text"
+                        value={form.desc}
+                        onChange={handleChange}
+                        className="form-control"
+                        id="desc"
+                        required
+                    />
                 </div>
                 <button type="submit" className="btn btn-sm btn-success">Submit</button>
-                <hr/>
+                <hr />
             </form>
         </div>
-    )
-}
+    );
+};
 
 export default AddTodo;

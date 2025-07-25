@@ -4,64 +4,47 @@ import { Todos } from './MyComponents/Todos';
 import { Footer } from './MyComponents/Footer';
 import { AddTodo } from './MyComponents/AddTodo';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { About } from './MyComponents/About'
+import { About } from './MyComponents/About';
 
 function App() {
-  let initTodo;
-  if (localStorage.getItem("todos") === null) {
-    initTodo = [];
-  }
-  else {
-    initTodo = JSON.parse(localStorage.getItem("todos"));
-  }
-
-  const onDelete = (todo) => {
-    setTodos(todos.filter((e) => {
-      return e !== todo;
-    }));
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }
+  const [todos, setTodos] = useState(() => {
+    const saved = localStorage.getItem("todos");
+    return saved ? JSON.parse(saved) : [];
+  });
 
   const addTodo = (title, desc) => {
-    let sno;
-    if (todos.length === 0) {
-      sno = 0
-    }
-    else {
-      sno = todos[todos.length - 1].sno + 1;
-    }
-    const myTodo = {
-      sno: sno,
-      title: title,
-      desc: desc
-    }
-    setTodos([...todos, myTodo]);
-  }
-  const [todos, setTodos] = useState(initTodo);
+    setTodos(prevTodos => {
+      const sno = prevTodos.length > 0 ? prevTodos[prevTodos.length - 1].sno + 1 : 0;
+      return [...prevTodos, { sno, title, desc }];
+    });
+  };
+
+  const onDelete = (todo) => {
+    setTodos(prevTodos => prevTodos.filter(e => e !== todo));
+  };
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos])
+  }, [todos]);
+
   return (
-    <>
-      <Router>
-        <Header title="Todos List" searchBar={false} />
-        <Switch>
-          <Route exact path="/" render={() => {
-            return (
-              <>
-                <AddTodo addTodo={addTodo} />
-                <Todos todos={todos} onDelete={onDelete} />
-              </>)
-          }}>
-          </Route>
-          <Route exact path="/about">
-            <About/>
-          </Route>
-        </Switch>
+    <Router>
+      <div className="d-flex flex-column min-vh-100">
+        <Header title="Todos List" />
+        <main className="flex-grow-1">
+          <Switch>
+            <Route exact path="/">
+              <AddTodo addTodo={addTodo} />
+              <Todos todos={todos} onDelete={onDelete} />
+            </Route>
+            <Route exact path="/about">
+              <About />
+            </Route>
+          </Switch>
+        </main>
         <Footer />
-      </Router>
-    </>
+      </div>
+    </Router>
   );
 }
 
