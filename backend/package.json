@@ -1,0 +1,14 @@
+{
+  "name": "todos-backend",
+  "version": "1.0.0",
+  "description": "Flask backend for Todos List application",
+  "main": "app.py",
+  "scripts": {
+    "start": "python app.py",
+    "dev": "python app.py",
+    "install-deps": "pip install -r requirements.txt"
+  },
+  "keywords": ["flask", "python", "api", "todos"],
+  "author": "",
+  "license": "MIT"
+} 

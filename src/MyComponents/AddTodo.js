@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const AddTodo = ({ addTodo }) => {
+export const AddTodo = ({ addTodo, loading = false }) => {
     const [form, setForm] = useState({ title: "", desc: "" });
 
     const handleChange = e => {
@@ -18,35 +18,47 @@ export const AddTodo = ({ addTodo }) => {
     };
 
     return (
-        <div className="container my-3">
-            <h3>Add your Work with Description</h3>
-            <form onSubmit={submit}>
-                <div className="mb-3">
-                    <label htmlFor="title" className="form-label">What is the Work</label>
-                    <input
-                        type="text"
-                        value={form.title}
-                        onChange={handleChange}
-                        className="form-control"
-                        id="title"
-                        required
-                        autoFocus
-                    />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="desc" className="form-label">Description of your Work</label>
-                    <input
-                        type="text"
-                        value={form.desc}
-                        onChange={handleChange}
-                        className="form-control"
-                        id="desc"
-                        required
-                    />
-                </div>
-                <button type="submit" className="btn btn-sm btn-success">Submit</button>
-                <hr />
-            </form>
+        <div className="todo-container">
+            <div className="todo-form">
+                <h3>Add New Task</h3>
+                <form onSubmit={submit}>
+                    <div className="form-group">
+                        <label htmlFor="title">Task Title</label>
+                        <input
+                            type="text"
+                            value={form.title}
+                            onChange={handleChange}
+                            className="form-control"
+                            id="title"
+                            required
+                            autoFocus
+                            placeholder="What needs to be done?"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="desc">Description</label>
+                        <input
+                            type="text"
+                            value={form.desc}
+                            onChange={handleChange}
+                            className="form-control"
+                            id="desc"
+                            required
+                            placeholder="Add some details..."
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
+                        {loading ? (
+                            <>
+                                <span className="spinner"></span>
+                                Adding Task...
+                            </>
+                        ) : (
+                            'Add Task'
+                        )}
+                    </button>
+                </form>
+            </div>
         </div>
     );
 };

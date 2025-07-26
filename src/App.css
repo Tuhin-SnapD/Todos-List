@@ -16,6 +16,33 @@
   color: #f1f1f1 !important;
   border-color: #444 !important;
 }
+/* Dark mode: Force navbar text to white */
+.dark-mode .navbar {
+  background-color: #111 !important;
+  color: #f1f1f1;
+}
+
+.dark-mode .navbar .navbar-brand,
+.dark-mode .navbar .nav-link {
+  color: #f1f1f1 !important;
+}
+
+.dark-mode .navbar .nav-link:hover,
+.dark-mode .navbar .nav-link.active {
+  color: #90caf9 !important;
+}
+
+/* Optional: button adjustments */
+.dark-mode .navbar .btn {
+  color: #fff;
+  border-color: #f1f1f1;
+}
+
+.dark-mode .navbar .btn:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
 
 .dark-mode a {
   color: #90caf9 !important;
@@ -139,4 +166,472 @@ footer.bg-dark {
   border-top: 1px solid #444 !important;
 }
 
-/* ...existing code... */
+/* Modern Authentication Styles */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-header h2 {
+  color: #333;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.auth-header p {
+  color: #666;
+  font-size: 16px;
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.otp-input {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-block {
+  width: 100%;
+  display: block;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-google {
+  background: white;
+  color: #333;
+  border: 2px solid #e1e5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-google:hover {
+  background: #f8f9fa;
+  border-color: #667eea;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-link {
+  background: none;
+  color: #667eea;
+  text-decoration: underline;
+  padding: 8px 0;
+}
+
+.btn-link:hover {
+  color: #764ba2;
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e1e5e9;
+}
+
+.divider span {
+  background: white;
+  padding: 0 15px;
+  color: #666;
+  font-size: 14px;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e1e5e9;
+}
+
+.auth-footer p {
+  margin: 0;
+  color: #666;
+}
+
+.auth-footer a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  color: #764ba2;
+}
+
+.alert {
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.alert-danger {
+  background: #fee;
+  color: #c53030;
+  border: 1px solid #fed7d7;
+}
+
+.alert-success {
+  background: #f0fff4;
+  color: #2f855a;
+  border: 1px solid #c6f6d5;
+}
+
+/* Enhanced Todo Styles */
+.todo-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.todo-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.todo-header h1 {
+  color: #333;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.todo-header p {
+  color: #666;
+  font-size: 18px;
+}
+
+.todo-form {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.todo-form h3 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.todo-list {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 2px solid #f1f3f4;
+  border-radius: 16px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.todo-item:hover {
+  border-color: #667eea;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+}
+
+.todo-item.done {
+  background: #f8f9fa;
+  opacity: 0.7;
+}
+
+.todo-content {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.todo-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.todo-description {
+  color: #666;
+  font-size: 14px;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: #667eea;
+}
+
+/* Dark Mode Enhancements */
+.dark-mode .auth-card {
+  background: #2d3748;
+  color: white;
+}
+
+.dark-mode .auth-header h2 {
+  color: white;
+}
+
+.dark-mode .auth-header p {
+  color: #a0aec0;
+}
+
+.dark-mode .form-control {
+  background: #4a5568;
+  border-color: #4a5568;
+  color: white;
+}
+
+.dark-mode .form-control:focus {
+  background: #2d3748;
+  border-color: #667eea;
+}
+
+.dark-mode .btn-google {
+  background: #4a5568;
+  color: white;
+  border-color: #4a5568;
+}
+
+.dark-mode .btn-google:hover {
+  background: #2d3748;
+}
+
+.dark-mode .divider::before {
+  background: #4a5568;
+}
+
+.dark-mode .divider span {
+  background: #2d3748;
+  color: #a0aec0;
+}
+
+.dark-mode .todo-form h3 {
+  color: white;
+}
+
+.dark-mode .form-group label {
+  color: #f1f1f1;
+}
+
+.dark-mode .form-control::placeholder {
+  color: #ccc;
+  opacity: 1; /* Ensures full visibility */
+}
+
+.dark-mode .auth-footer {
+  border-top-color: #4a5568;
+}
+
+.dark-mode .auth-footer p {
+  color: #a0aec0;
+}
+
+.dark-mode .todo-form,
+.dark-mode .todo-list {
+  background: #2d3748;
+  color: white;
+}
+
+.dark-mode .todo-item {
+  border-color: #4a5568;
+  background: #4a5568;
+}
+
+.dark-mode .todo-item:hover {
+  border-color: #667eea;
+}
+
+.dark-mode .todo-title {
+  color: white;
+}
+
+.dark-mode .todo-description {
+  color: #a0aec0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .auth-card {
+    padding: 30px 20px;
+    margin: 10px;
+  }
+  
+  .todo-container {
+    padding: 10px;
+  }
+  
+  .todo-form,
+  .todo-list {
+    padding: 20px;
+  }
+  
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .todo-actions {
+    margin-top: 15px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+/* Loading Animation */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Welcome Screen */
+.welcome-screen {
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.welcome-screen h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.welcome-screen p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.welcome-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.welcome-actions .btn {
+  min-width: 150px;
+}
